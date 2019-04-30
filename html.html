@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+    <title>Projekt</title>
+    <link rel="shortcut icon" type="image/png" href="https://static-cdn.jtvnw.net/emoticons/v1/780624/3.0">
+    <style>
+        body {
+            background-color: black;
+        }
+
+        body>* {
+            padding: 1em;
+            margin: auto;
+            box-sizing: border-box;
+        }
+
+        div {
+
+            width: 80%;
+            background-color: grey;
+
+        }
+
+        article {
+            border: 1px solid #000;
+            width: 100%;
+            clear: both;
+        }
+
+        p {
+            font-size: 250%;
+            display: block;
+            border: 1px solid #000;
+            height: 50px;
+
+
+        }
+
+        .animacja {
+            height: 40px;
+            padding: 0.4em;
+            border: 1px solid #000;
+            text-decoration: none;
+            display: block;
+            background: red;
+            animation: anim1 4s;
+            -moz-animation: anim1 4s infinite;
+            /* Firefox */
+            -webkit-animation: anim1 4s infinite;
+            /* Chrome */
+            column-fill: auto;
+            text-align: center;
+            font-size: 200%;
+        }
+
+        .animacja:focus {
+            display: none;
+
+        }
+
+        @-moz-keyframes anim1
+
+        /* Firefox */
+            {
+            0% {
+                background: red;
+                color: green;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            14% {
+                background: orange;
+                color: blue;
+                font-size: 200%;
+                letter-spacing: 8px;
+            }
+
+            28% {
+                background: yellow;
+                color: purple;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            42% {
+                background: green;
+                color: red;
+                font-size: 200%;
+                letter-spacing: 8px;
+            }
+
+            56% {
+                background: cyan;
+                color: black;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            71% {
+                background: blue;
+                color: orange;
+                font-size: 200%;
+                letter-spacing: 8px;
+            }
+
+            85% {
+                background: purple;
+                color: yellow;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            100% {
+                background: red;
+                color: green;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+        }
+
+        @-webkit-keyframes anim1
+
+        /* Chrome */
+            {
+            0% {
+                background: red;
+                color: green;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            14% {
+                background: orange;
+                color: blue;
+                font-size: 200%;
+                letter-spacing: 8px;
+            }
+
+            28% {
+                background: yellow;
+                color: purple;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            42% {
+                background: green;
+                color: red;
+                font-size: 200%;
+                letter-spacing: 8px;
+            }
+
+            56% {
+                background: cyan;
+                color: black;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            71% {
+                background: blue;
+                color: orange;
+                font-size: 200%;
+                letter-spacing: 8px;
+            }
+
+            85% {
+                background: purple;
+                color: yellow;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            100% {
+                background: red;
+                color: green;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+        }
+
+        .box {
+            width: 90%;
+            margin: 0 auto;            
+            padding: 35px;            
+            border-radius: 20px/50px;
+            background-clip: padding-box;
+            text-align: center;
+        }
+
+        .button {
+            font-size: 1em;
+            padding: 10px;
+            color: #fff;
+            border: 2px solid #06D85F;
+            border-radius: 20px/50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+        }
+
+        .button:hover {
+            background: #06D85F;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .overlay:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup {
+            margin: 70px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            width: 30%;
+            position: relative;
+            transition: all 5s ease-in-out;
+        }
+
+        .popup h2 {
+            margin-top: 0;
+            color: #333;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .popup .close:hover {
+            color: #06D85F;
+        }
+
+        .popup .content {
+            max-height: 30%;
+            overflow: auto;
+            background-color: #fff;
+        }
+
+        @media screen and (max-width: 700px) {
+            .box {
+                width: 70%;
+            }
+
+            .popup {
+                width: 70%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <header>
+            <a href="index.html" class="animacja">Witaj</a>
+        </header><br>
+
+        <p id="h1">Lorem ipsum dolor sit amet</p>
+
+
+        <script>
+            var html = ["colorRed", "floatRight", "fontWeightBold", "textAlignCenter", "letterSpacing10px", "fontFamilyComic", "textDecorationU","textShadow"];
+
+            var randomIndex = Math.floor(Math.random() * 1000) % 8;
+
+            let change = html[randomIndex];
+
+            // opcje
+
+            if (change == "colorRed") {
+
+                document.getElementById("h1").style.color = "red";
+
+
+            }
+
+            if (change == "floatRight") {
+
+                document.getElementById("h1").style.float = "right";
+
+            }
+            if (change == "fontWeightBold") {
+
+                document.getElementById("h1").style.fontWeight = "bold";
+
+            }
+            if (change == "textAlignCenter") {
+
+                document.getElementById("h1").style.textAlign = "center";
+
+            }
+            if (change == "letterSpacing10px") {
+
+                document.getElementById("h1").style.letterSpacing = "10px";
+
+            }
+            if (change == "fontFamilyComic") {
+
+                document.getElementById("h1").style.fontFamily = "Comic Sans MS";
+
+            }
+            if (change == "textDecorationU") {
+
+                document.getElementById("h1").style.textDecoration = "underline";
+            }
+            if (change == "textShadow") {
+
+                document.getElementById("h1").style.textShadow = "2 2 5 cyan";
+            }
+
+
+            // sprawdzanie odpowiedzi
+
+            function colorRed() {
+
+                if (change == "colorRed") {
+
+                    document.getElementById("h1").style.backgroundColor = "green";
+
+                }
+
+            }
+
+            function floatRight() {
+                if (change == "floatRight") {
+
+                    document.getElementById("h1").style.backgroundColor = "green";
+
+                }
+
+            }
+
+            function fontWeightBold() {
+                if (change == "fontWeightBold") {
+
+                    document.getElementById("h1").style.backgroundColor = "green";
+
+                }
+
+            }
+
+            function textAlignCenter() {
+                if (change == "textAlignCenter") {
+
+                    document.getElementById("h1").style.backgroundColor = "green";
+
+                }
+
+            }
+
+            function letterSpacing10px() {
+                if (change == "letterSpacing10px") {
+
+                    document.getElementById("h1").style.backgroundColor = "green";
+
+                }
+
+            }
+
+            function fontFamilyComic() {
+                if (change == "fontFamilyComic") {
+
+                    document.getElementById("h1").style.backgroundColor = "green";
+
+                }
+
+            }
+
+            function textDecorationU() {
+                if (change == "textDecorationU") {
+
+                    document.getElementById("h1").style.backgroundColor = "green";
+
+                }
+
+            }
+            
+            function textShadow() {
+                if (change == "text") {
+
+                    document.getElementById("h1").style.backgroundColor = "green";
+
+                }
+
+            }
+
+            // next
+
+            function reset() {
+
+                location.reload();
+
+
+
+            }
+
+        </script>
+
+        <article>
+            <button onclick="colorRed()">color: red</button>
+            <button onclick="floatRight()">float: right</button>
+            <button onclick="fontWeightBold()">font-weight: bold</button>
+            <button onclick="textAlignCenter()">text-align: center</button><br>
+            <button onclick="letterSpacing10px()">letter-spacing: 10px</button>
+            <button onclick="fontFamilyComic()">font-family: Comic Sans MS</button>
+            <button onclick="textDecorationU()">text-decoration: underline</button>
+            <button onclick="textShadow()">text-shadow: 2,2,5,cyan</button>
+
+            <br><br>
+            <button onclick="reset()">Next</button>
+        </article>
+
+        <div class="box">
+            <a class="button" href="#popup1">Kliknij mnie</a>
+        </div>
+    </div>
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Autorzy</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                Antoni Roskosz i Pawel Golabek z 2i
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
