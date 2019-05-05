@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+    <title>Projekt</title>
+
+    <link rel="shortcut icon" type="image/png" href="https://static-cdn.jtvnw.net/emoticons/v1/780624/3.0">
+    <style>
+        body {
+            font: "Times";
+            background: linear-gradient(270deg, #c80000, #000000);
+            background-size: 400% 400%;
+
+            -webkit-animation: Gradient 20s ease infinite;
+            -moz-animation: Gradient 20s ease infinite;
+            animation: Gradient 20s ease infinite;
+        }
+
+        body>* {
+            padding: 1em;
+            margin: auto;
+            box-sizing: border-box;
+        }
+
+        .strona {
+            width: 80%;
+            background-color: grey;
+            border-radius: 1em;
+            border: 1px solid #fff;
+        }
+
+        .stopka {
+            position: sticky;
+        }
+
+        article {
+            border: 1px solid #000;
+            width: 100%;
+            clear: both;
+        }
+
+        p {
+            font-size: 250%;
+            display: block;
+            border: 1px solid #000;
+            height: 50px;
+
+        }
+
+        button {
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        .animacja {
+            height: 40px;
+            padding: 15px;
+            margin: auto;
+            border: 1px solid #000;
+            text-decoration: none;
+            position: 50%;
+            color: #fff;
+            display: block;
+            border-radius: 20px/50px;
+
+            /*normal*/
+            /*
+            animation: anim1 10s;
+            -moz-animation: anim1 10s infinite;
+            /* Firefox */
+            /*
+            -webkit-animation: anim1 10s infinite;
+            /* Chrome */
+
+
+
+            /*gradient*/
+            background: linear-gradient(270deg, #ff0000, #3ab700, #0072f7, #8e0089);
+            background-size: 800% 800%;
+
+            -webkit-animation: WitajAnim 8s ease infinite;
+            -moz-animation: WitajAnim 8s ease infinite;
+            animation: WitajAnim 8s ease infinite;
+
+            text-align: center;
+            font-size: 200%;
+        }
+
+        .animacja:focus {
+            display: none;
+        }
+
+        @-moz-keyframes anim1
+
+        /* Firefox */
+            {
+            0% {
+                background: red;
+                color: green;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            14% {
+                background: orange;
+                color: blue;
+                font-size: 200%;
+                letter-spacing: 8px;
+            }
+
+            28% {
+                background: yellow;
+                color: purple;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            42% {
+                background: green;
+                color: red;
+                font-size: 200%;
+                letter-spacing: 8px;
+            }
+
+            56% {
+                background: cyan;
+                color: black;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            71% {
+                background: blue;
+                color: orange;
+                font-size: 200%;
+                letter-spacing: 8px;
+            }
+
+            85% {
+                background: purple;
+                color: yellow;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            100% {
+                background: red;
+                color: green;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+        }
+
+        @-webkit-keyframes anim1
+
+        /* Chrome */
+            {
+            0% {
+                background: red;
+                color: green;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            14% {
+                background: orange;
+                color: blue;
+                font-size: 200%;
+                letter-spacing: 8px;
+            }
+
+            28% {
+                background: yellow;
+                color: purple;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            42% {
+                background: green;
+                color: red;
+                font-size: 200%;
+                letter-spacing: 8px;
+            }
+
+            56% {
+                background: cyan;
+                color: black;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            71% {
+                background: blue;
+                color: orange;
+                font-size: 200%;
+                letter-spacing: 8px;
+            }
+
+            85% {
+                background: purple;
+                color: yellow;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+
+            100% {
+                background: red;
+                color: green;
+                font-size: 200%;
+                letter-spacing: normal;
+            }
+        }
+
+        .box {
+            width: 90%;
+            margin: 0 auto;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .button {
+            font-size: 1em;
+            padding: 10px;
+            color: #fff;
+            border: 2px solid #06D85F;
+            border-radius: 20px/50px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+        }
+
+        .button:hover {
+            background: #06D85F;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .overlay:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup {
+            margin: 70px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            width: 30%;
+            position: relative;
+            transition: all 5s ease-in-out;
+        }
+
+        .popup h2 {
+            margin-top: 0;
+            color: #333;
+            font-family: Tahoma, Arial, sans-serif;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .popup .close:hover {
+            color: #06D85F;
+        }
+
+        .popup .content {
+            max-height: 30%;
+            overflow: auto;
+            background-color: #fff;
+        }
+
+        @media screen and (max-width: 700px) {
+            .box {
+                width: 70%;
+
+            }
+
+            .popup {
+                width: 70%;
+            }
+        }
+
+        @-webkit-keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        @-moz-keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        @keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        @-webkit-keyframes WitajAnim {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        @-moz-keyframes WitajAnim {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        @keyframes WitajAnim {
+            0% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0% 50%
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="myAudio">
+
+        <source src="mozzart.mp3" type="audio/mpeg">
+    </audio>
+    <div class="strona">
+        <header>
+            <a class="animacja">Witaj</a>
+        </header><br>
+
+        <p id="h1">Lorem ipsum</p>
+
+
+        <script>
+            var html = ["colorRed", "floatRight", "fontWeightBold", "textAlignCenter", "letterSpacing10px", "fontFamilyComic", "textDecorationU", "textShadow", "textTransform"];
+            var randomIndex = Math.floor(Math.random() * 1000) % 9;
+            let change = html[randomIndex];
+            // opcje
+            if (change == "colorRed") {
+                document.getElementById("h1").style.color = "red";
+            }
+            if (change == "floatRight") {
+                document.getElementById("h1").style.float = "right";
+            }
+            if (change == "fontWeightBold") {
+                document.getElementById("h1").style.fontWeight = "bold";
+            }
+            if (change == "textAlignCenter") {
+                document.getElementById("h1").style.textAlign = "center";
+            }
+            if (change == "letterSpacing10px") {
+                document.getElementById("h1").style.letterSpacing = "10px";
+            }
+            if (change == "fontFamilyComic") {
+                document.getElementById("h1").style.fontFamily = "Comic Sans MS";
+            }
+            if (change == "textDecorationU") {
+                document.getElementById("h1").style.textDecoration = "underline";
+            }
+            if (change == "textShadow") {
+                document.getElementById("h1").style.textShadow = "2px 2px cyan";
+            }
+            if (change == "textTransform") {
+                document.getElementById("h1").style.textTransform = "capitalize";
+            }
+            // sprawdzanie odpowiedzi
+            function colorRed() {
+                if (change == "colorRed") {
+                    document.getElementById("h1").style.backgroundColor = "green";
+                }
+            }
+
+            function floatRight() {
+                if (change == "floatRight") {
+                    document.getElementById("h1").style.backgroundColor = "green";
+                }
+            }
+
+            function fontWeightBold() {
+                if (change == "fontWeightBold") {
+                    document.getElementById("h1").style.backgroundColor = "green";
+                }
+            }
+
+            function textAlignCenter() {
+                if (change == "textAlignCenter") {
+                    document.getElementById("h1").style.backgroundColor = "green";
+                }
+            }
+
+            function letterSpacing10px() {
+                if (change == "letterSpacing10px") {
+                    document.getElementById("h1").style.backgroundColor = "green";
+                }
+            }
+
+            function fontFamilyComic() {
+                if (change == "fontFamilyComic") {
+                    document.getElementById("h1").style.backgroundColor = "green";
+                }
+            }
+
+            function textDecorationU() {
+                if (change == "textDecorationU") {
+                    document.getElementById("h1").style.backgroundColor = "green";
+                }
+            }
+
+            function textShadow() {
+                if (change == "textShadow") {
+                    document.getElementById("h1").style.backgroundColor = "green";
+                }
+            }
+
+            function textTransform() {
+                if (change == "textTransform") {
+                    document.getElementById("h1").style.backgroundColor = "green";
+                }
+            }
+            // next
+            function reset() {
+                //location.reload();
+                document.getElementById("h1").style.backgroundColor = "grey";
+                document.getElementById("h1").style.color = "black";
+                document.getElementById("h1").style.float = "none";
+                document.getElementById("h1").style.fontWeight = "normal";
+                document.getElementById("h1").style.textAlign = "left";
+                document.getElementById("h1").style.letterSpacing = "normal";
+                document.getElementById("h1").style.fontFamily = "Times";
+                document.getElementById("h1").style.textDecoration = "none";
+                document.getElementById("h1").style.textShadow = "none";
+                document.getElementById("h1").style.textTransform = "none";
+
+                var randomIndex = Math.floor(Math.random() * 1000) % 9;
+                change = html[randomIndex];
+
+                if (change == "colorRed") {
+                    document.getElementById("h1").style.color = "red";
+                }
+                if (change == "floatRight") {
+                    document.getElementById("h1").style.float = "right";
+                }
+                if (change == "fontWeightBold") {
+                    document.getElementById("h1").style.fontWeight = "bold";
+                }
+                if (change == "textAlignCenter") {
+                    document.getElementById("h1").style.textAlign = "center";
+                }
+                if (change == "letterSpacing10px") {
+                    document.getElementById("h1").style.letterSpacing = "10px";
+                }
+                if (change == "fontFamilyComic") {
+                    document.getElementById("h1").style.fontFamily = "Comic Sans MS";
+                }
+                if (change == "textDecorationU") {
+                    document.getElementById("h1").style.textDecoration = "underline";
+                }
+                if (change == "textShadow") {
+                    document.getElementById("h1").style.textShadow = "2px 2px cyan";
+                }
+                if (change == "textTransform") {
+                    document.getElementById("h1").style.textTransform = "capitalize";
+                }
+            }
+            var x = document.getElementById("myAudio");
+
+            function playAudio() {
+                x.play();
+            }
+
+            function pauseAudio() {
+                x.pause();
+            }
+        </script>
+
+        <article>
+            <button onclick="colorRed()">color: red</button>
+            <button onclick="floatRight()">float: right</button>
+            <button onclick="fontWeightBold()">font-weight: bold</button>
+            <button onclick="textAlignCenter()">text-align: center</button>
+            <button onclick="textTransform()">text-transform: capitalize</button>
+            <button onclick="letterSpacing10px()">letter-spacing: 10px</button>
+            <button onclick="fontFamilyComic()">font-family: Comic Sans MS</button>
+            <button onclick="textDecorationU()">text-decoration: underline</button>
+            <button onclick="textShadow()">text-shadow: 2px 5px cyan</button>
+
+            <br><br>
+            <button onclick="reset()">Next</button>
+        </article>
+
+
+    </div>
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Autorzy</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                Antoni Roskosz i Pawel Golabek z 2i
+            </div>
+        </div>
+    </div>
+    <footer class="stopka">
+        <div class="box">
+            <a class="button" href="sandbox.html">Sandbox</a>
+            <a class="button" href="#popup1">Autorzy</a>
+            <a class="button" onclick="playAudio()">Sekret</a>
+        </div>
+    </footer>
+</body></html>

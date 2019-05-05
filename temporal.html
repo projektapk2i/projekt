@@ -30,7 +30,8 @@
             border-radius: 1em;
             border: 1px solid #fff;
         }
-        .stopka{
+
+        .stopka {
             position: sticky;
         }
 
@@ -46,6 +47,12 @@
             border: 1px solid #000;
             height: 50px;
 
+        }
+
+        button {
+            background-color: #000;
+            color: #fff;
+            border: 1px solid #fff;
         }
 
         .animacja {
@@ -378,137 +385,139 @@
                 background-position: 0% 50%
             }
         }
-
     </style>
 </head>
 
 <body onload = "start()">
-    <div class="strona" >
+    <audio id="myAudio">
+
+        <source src="mozzart.mp3" type="audio/mpeg">
+    </audio>
+    <div class="strona">
         <header>
             <a class="animacja">Tryb Sandbox</a>
         </header><br>
 
-        <p id="h1">Lorem ipsum dolor sit amet</p>
+        <p id="h1">Lorem ipsum</p>
 
 
         <script>
-			
             var randomIndex = Math.floor(Math.random() * 1000) % 9;
             let change = 0;
-            
-			
+
+
             // sprawdzanie inputu
-			
+
             function colorRed() {
-				if(document.getElementById("h1").style.color != "red"){
-					
-                	document.getElementById("h1").style.color = "red";
-					
-				}else{
-					
-					document.getElementById("h1").style.color = "black";
-					
-				}
-                
+                if (document.getElementById("h1").style.color != "red") {
+
+                    document.getElementById("h1").style.color = "red";
+
+                } else {
+
+                    document.getElementById("h1").style.color = "black";
+
+                }
+
             }
 
             function floatRight() {
-				if(document.getElementById("h1").style.float != "right"){
-					
-					document.getElementById("h1").style.float = "right";
-				
-				}else{
-					
-				  	document.getElementById("h1").style.float = "none";	
-					
-				}
-                
+                if (document.getElementById("h1").style.float != "right") {
+
+                    document.getElementById("h1").style.float = "right";
+
+                } else {
+
+                    document.getElementById("h1").style.float = "none";
+
+                }
+
             }
 
             function fontWeightBold() {
-				if(document.getElementById("h1").style.fontWeight != "bold"){
-					
-                	document.getElementById("h1").style.fontWeight = "bold";
-				
-				}else{
-					document.getElementById("h1").style.fontWeight = "normal";
-				}
-                
+                if (document.getElementById("h1").style.fontWeight != "bold") {
+
+                    document.getElementById("h1").style.fontWeight = "bold";
+
+                } else {
+                    document.getElementById("h1").style.fontWeight = "normal";
+                }
+
             }
 
             function textAlignCenter() {
-				if(document.getElementById("h1").style.textAlign != "center"){
-					
-                	document.getElementById("h1").style.textAlign = "center";
-				
-				}else{
-					
-					document.getElementById("h1").style.textAlign = "left";
-					
-				}
-                
+                if (document.getElementById("h1").style.textAlign != "center") {
+
+                    document.getElementById("h1").style.textAlign = "center";
+
+                } else {
+
+                    document.getElementById("h1").style.textAlign = "left";
+
+                }
+
             }
 
             function letterSpacing10px() {
-				if(document.getElementById("h1").style.letterSpacing != "10px"){
-					
-                	document.getElementById("h1").style.letterSpacing = "10px";
-				
-				}else{
-					document.getElementById("h1").style.letterSpacing = "normal";
-				}
-                
+                if (document.getElementById("h1").style.letterSpacing != "10px") {
+
+                    document.getElementById("h1").style.letterSpacing = "10px";
+
+                } else {
+                    document.getElementById("h1").style.letterSpacing = "normal";
+                }
+
             }
 
             function fontFamilyImpact() {
-				if(document.getElementById("h1").style.fontFamily != "Impact"){
-					
-					document.getElementById("h1").style.fontFamily = "Impact";
-					
-				}else{
-					document.getElementById("h1").style.fontFamily = "Times";
-				}
-                
+                if (document.getElementById("h1").style.fontFamily != "Impact") {
+
+                    document.getElementById("h1").style.fontFamily = "Impact";
+
+                } else {
+                    document.getElementById("h1").style.fontFamily = "Times";
+                }
+
             }
 
             function textDecorationU() {
-				if(document.getElementById("h1").style.textDecoration != "underline"){
-					
-                	document.getElementById("h1").style.textDecoration = "underline";
-				}else{
-					document.getElementById("h1").style.textDecoration = "none";
-				}
-                
+                if (document.getElementById("h1").style.textDecoration != "underline") {
+
+                    document.getElementById("h1").style.textDecoration = "underline";
+                } else {
+                    document.getElementById("h1").style.textDecoration = "none";
+                }
+
             }
 
             function textShadow() {
-				if(document.getElementById("h1").style.textShadow != "cyan 2px 2px"){
-					
-                	document.getElementById("h1").style.textShadow = "cyan 2px 2px";
-					
-				}else{
-					
-                	document.getElementById("h1").style.textShadow = "none";
-				}
-                
+                if (document.getElementById("h1").style.textShadow != "cyan 2px 2px") {
+
+                    document.getElementById("h1").style.textShadow = "cyan 2px 2px";
+
+                } else {
+
+                    document.getElementById("h1").style.textShadow = "none";
+                }
+
             }
 
             function textTransform() {
-				if(
-                document.getElementById("h1").style.textTransform != "capitalize"){
-					
-                document.getElementById("h1").style.textTransform = "capitalize";
-					
-				}else{
-                
-                document.getElementById("h1").style.textTransform = "none";
-					
-				}
-                
+                if (
+                    document.getElementById("h1").style.textTransform != "capitalize") {
+
+                    document.getElementById("h1").style.textTransform = "capitalize";
+
+                } else {
+
+                    document.getElementById("h1").style.textTransform = "none";
+
+                }
+
             }
-			
+
             // reset
-			
+
             function reset() {
                 //location.reload();
                 document.getElementById("h1").style.backgroundColor = "grey";
@@ -522,7 +531,15 @@
                 document.getElementById("h1").style.textShadow = "none";
                 document.getElementById("h1").style.textTransform = "none";
             }
-			
+            var x = document.getElementById("myAudio");
+
+            function playAudio() {
+                x.play();
+            }
+
+            function pauseAudio() {
+                x.pause();
+            }
 			// update
 			update();
 			function update(){
@@ -542,8 +559,7 @@
             <button onclick="floatRight()">float: right</button>
             <button onclick="fontWeightBold()">font-weight: bold</button>
             <button onclick="textAlignCenter()">text-align: center</button>
-            <button onclick="textTransform()">text-transform: capitalize</button><br>
-            <button onclick="letterSpacing10px()">letter-spacing: 10px</button>
+            <button onclick="textTransform()">text-transform: capitalize</button> <button onclick="letterSpacing10px()">letter-spacing: 10px</button>
             <button onclick="fontFamilyImpact()">font-family: Impact</button>
             <button onclick="textDecorationU()">text-decoration: underline</button>
             <button onclick="textShadow()">text-shadow: 2px 5px cyan</button>
@@ -565,9 +581,10 @@
     </div>
     <footer class="stopka">
         <div class="box">
+            <a class="button" href="index.html">Quiz</a>
             <a class="button" href="#popup1">Autorzy</a>
+            <a class="button" onclick="playAudio()">Sekret</a>
         </div>
     </footer>
-</body>
-
-</html>
+</body></html>
+	
