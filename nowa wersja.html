@@ -382,8 +382,8 @@
     </style>
 </head>
 
-<body>
-    <div class="strona">
+<body onload = "start()">
+    <div class="strona" >
         <header>
             <a class="animacja">Tryb Sandbox</a>
         </header><br>
@@ -522,10 +522,22 @@
                 document.getElementById("h1").style.textShadow = "none";
                 document.getElementById("h1").style.textTransform = "none";
             }
+			
+			// update
+			update();
+			function update(){
+				document.getElementById("h1").innerHTML = document.getElementById("tekst").value;
+				setTimeout( update, 200);
+				
+			}
+		function start(){
+			update();
+		}
 
         </script>
 
         <article>
+            <input type = "text" id = "tekst">
             <button onclick="colorRed()">color: red</button>
             <button onclick="floatRight()">float: right</button>
             <button onclick="fontWeightBold()">font-weight: bold</button>
