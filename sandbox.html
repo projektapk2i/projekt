@@ -404,6 +404,8 @@
         <script>
             var randomIndex = Math.floor(Math.random() * 1000) % 9;
             let change = 0;
+			var value;
+			var property;
 
 
             // sprawdzanie inputu
@@ -543,6 +545,12 @@
 			// update
 			update();
 			function update(){
+				
+				value = document.getElementById("valueInput").value;
+				property = document.getElementById("propertyInput").value;
+				
+				document.getElementById("h1").style[property] = value;
+				
 				document.getElementById("h1").innerHTML = document.getElementById("tekst").value;
 				setTimeout( update, 200);
 				
@@ -554,6 +562,8 @@
         </script>
 
         <article>
+            property:<input type = "text" id = "propertyInput">
+            value:<input type = "text" id = "valueInput">
             <input type = "text" id = "tekst">
             <button onclick="colorRed()">color: red</button>
             <button onclick="floatRight()">float: right</button>
@@ -563,6 +573,7 @@
             <button onclick="fontFamilyImpact()">font-family: Impact</button>
             <button onclick="textDecorationU()">text-decoration: underline</button>
             <button onclick="textShadow()">text-shadow: 2px 5px cyan</button>
+            
 
             <br><br>
             <button onclick="reset()">Reset</button>
