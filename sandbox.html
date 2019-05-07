@@ -542,28 +542,33 @@
             function pauseAudio() {
                 x.pause();
             }
-			// update
-			update();
+			
 			function update(){
-				
-				value = document.getElementById("valueInput").value;
-				property = document.getElementById("propertyInput").value;
-				
-				document.getElementById("h1").style[property] = value;
 				
 				document.getElementById("h1").innerHTML = document.getElementById("tekst").value;
 				setTimeout( update, 200);
 				
 			}
-		function start(){
-			update();
-		}
+			
+			function submit(){
+				
+				value = document.getElementById("valueInput").value;
+				property = document.getElementById("propertyInput").value;
+				
+				document.getElementById("h1").style[property] = value;
+			}
+			
+			
+			function start(){
+				update();
+			}
 
         </script>
 
         <article>
             property:<input type = "text" id = "propertyInput">
             value:<input type = "text" id = "valueInput">
+            <button onclick="submit()">Submit</button>
             <input type = "text" id = "tekst">
             <button onclick="colorRed()">color: red</button>
             <button onclick="floatRight()">float: right</button>
